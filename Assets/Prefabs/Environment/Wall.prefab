@@ -69,19 +69,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea91d00145f79c941b1ddc9949d971e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Objects:
-  - Weight: 7
-    Obj: {fileID: 4960516544460538154}
-  - Weight: 1
-    Obj: {fileID: 3468520112300449836}
-  - Weight: 1
-    Obj: {fileID: 6072706570103035836}
-  RandomRotateX: 0
-  AngleStepX: 1
-  RandomRotateY: 0
-  AngleStepY: 1
-  RandomRotateZ: 0
-  AngleStepZ: 1
+  m_Objects:
+  - m_Weight: 10
+    m_Obj: {fileID: 4960516544460538154}
+  - m_Weight: 1
+    m_Obj: {fileID: 3468520112300449836}
+  - m_Weight: 1
+    m_Obj: {fileID: 6072706570103035836}
+  m_RandomRotateX: 0
+  m_AngleStepX: 1
+  m_RandomRotateY: 0
+  m_AngleStepY: 1
+  m_RandomRotateZ: 0
+  m_AngleStepZ: 1
 --- !u!1001 &4387563198731672957
 PrefabInstance:
   m_ObjectHideFlags: 0

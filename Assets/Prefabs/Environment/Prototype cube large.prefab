@@ -68,17 +68,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea91d00145f79c941b1ddc9949d971e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Objects:
-  - Weight: 1
-    Obj: {fileID: 2488286659124874380}
-  - Weight: 1
-    Obj: {fileID: 2206538568002218974}
-  RandomRotateX: 0
-  AngleStepX: 1
-  RandomRotateY: 0
-  AngleStepY: 1
-  RandomRotateZ: 0
-  AngleStepZ: 1
+  m_Objects:
+  - m_Weight: 1
+    m_Obj: {fileID: 2488286659124874380}
+  - m_Weight: 1
+    m_Obj: {fileID: 2206538568002218974}
+  m_RandomRotateX: 0
+  m_AngleStepX: 1
+  m_RandomRotateY: 0
+  m_AngleStepY: 1
+  m_RandomRotateZ: 0
+  m_AngleStepZ: 1
 --- !u!1001 &1323595339897607823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,6 +231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube_Prototype_Large_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d451ab8b07c10a47a7b2cf20326072f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Code.Utils {
     public static class Utils {
+        public static bool Rate(float rate) => Random.Range(0, 1f) < rate;
 
-        public static bool Rate(float rate) {
-            return Random.Range(0, 1f) < rate;
-        }
         #region Simple sample
         public static T Sample<T>(List<T> list) {
             if (list.Count != 0) return list[Random.Range(0, list.Count)];
@@ -20,14 +18,13 @@ namespace Code.Utils {
                 Debug.LogError("Trying to sample an empty list");
                 return default;
             }
+
             List<T> clone = new();
             clone.AddRange(list);
             return clone[Random.Range(0, list.Count)];
         }
 
-        public static List<T> Shuffle<T>(ICollection<T> list) {
-            return Sample(list, list.Count);
-        }
+        public static List<T> Shuffle<T>(ICollection<T> list) => Sample(list, list.Count);
 
         public static List<T> Sample<T>(IEnumerable<T> list, int n) {
             List<T> clone = new();
@@ -39,6 +36,7 @@ namespace Code.Utils {
                 clone.Remove(element);
                 result.Add(element);
             }
+
             return result;
         }
         #endregion
@@ -57,15 +55,14 @@ namespace Code.Utils {
             return list[^1];
         }
 
-        public static T Sample<T>(List<WeightDistribution<T>> list) {
-            return Sample(list, 1)[0];
-        }
+        public static T Sample<T>(List<WeightDistribution<T>> list) => Sample(list, 1)[0];
 
         public static List<T> Sample<T>(List<WeightDistribution<T>> list, int n) {
             if (list.Count == 0) {
                 Debug.LogError("Trying to sample an empty list");
                 return default;
             }
+
             List<WeightDistribution<T>> clone = new();
             clone.AddRange(list);
 
@@ -75,6 +72,7 @@ namespace Code.Utils {
                 clone.Remove(element);
                 result.Add(element.Obj);
             }
+
             return result;
         }
 
