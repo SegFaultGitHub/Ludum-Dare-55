@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Code.Controllers {
     public class Character : MonoBehaviour {
         #region Members
-        [Foldout("Camera")]
+        [Foldout("Character", true)]
         [Separator("Read only")]
         [ReadOnly][SerializeField] private protected Animator m_Animator;
         [ReadOnly][SerializeField] private protected CharacterController m_Controller;

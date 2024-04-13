@@ -4,16 +4,14 @@ using UnityEngine;
 namespace Code.Controllers {
     public class Player : Character {
         #region Members
-        [Foldout("Camera")]
+        [Foldout("Player", true)]
         [SerializeField] private float m_JumpPower;
         [Separator("Read only")]
         [ReadOnly][SerializeField] private protected Transform m_Camera;
         #endregion
 
         #region Getters / Setters
-        private float JumpPower {
-            get => this.m_JumpPower;
-        }
+        private float JumpPower { get => this.m_JumpPower; }
         private Transform Camera { get => this.m_Camera; set => this.m_Camera = value; }
         #endregion
 
@@ -32,7 +30,7 @@ namespace Code.Controllers {
                 this.MovementDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             }
 
-            this.Animator.SetFloat(SPEED, (speed * (this.Running ? this.RunningSpeed : this.WalkingSpeed)) / WALK_SPEED_THRESHOLD);
+            this.Animator.SetFloat(SPEED, speed * (this.Running ? this.RunningSpeed : this.WalkingSpeed) / WALK_SPEED_THRESHOLD);
         }
 
         #region Input
@@ -73,7 +71,7 @@ namespace Code.Controllers {
                 // --
                 WalkingStarted = this.PlayerInputs.Controls.Walking.WasPressedThisFrame(),
                 WalkingInProgress = this.PlayerInputs.Controls.Walking.IsPressed(),
-                WalkingEnded = this.PlayerInputs.Controls.Walking.WasReleasedThisFrame(),
+                WalkingEnded = this.PlayerInputs.Controls.Walking.WasReleasedThisFrame()
             };
         }
 
@@ -81,10 +79,12 @@ namespace Code.Controllers {
             if (this.Input.MoveStarted || this.Input.MoveInProgress || this.Input.MoveEnded) {
                 this.Move(this.PlayerInputs.Controls.Move.ReadValue<Vector2>());
             }
+
             // --
             if (this.Input.JumpInProgress) {
                 this.Jump();
             }
+
             // --
             this.Running = !this.Input.WalkingInProgress;
         }

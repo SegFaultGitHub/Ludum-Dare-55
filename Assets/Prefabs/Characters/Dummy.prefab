@@ -434,10 +434,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a642b639d1242bc8d11b32a551938fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Animator: {fileID: 0}
+  m_Controller: {fileID: 0}
   <WalkingSpeed>k__BackingField: 0.06
   <RunningSpeed>k__BackingField: 0.15
   <MovementDirection>k__BackingField: {x: 0, y: 0, z: 0}
-  JumpPower: 0.35
+  m_JumpPower: 0.35
+  m_Camera: {fileID: 0}
 --- !u!143 &295463952326475340
 CharacterController:
   m_ObjectHideFlags: 0

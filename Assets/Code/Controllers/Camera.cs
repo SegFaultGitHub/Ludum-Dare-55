@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 namespace Code.Controllers {
     public class Camera : MonoBehaviour {
         #region Members
-        [Foldout("Camera")]
+        [Foldout("Camera", true)]
         [SerializeField] private protected Transform m_Follow;
         [SerializeField] private protected Transform m_FocusOn;
         [SerializeField] private protected float m_Distance;

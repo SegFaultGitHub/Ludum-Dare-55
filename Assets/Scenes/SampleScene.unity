@@ -273,12 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217881c8ae294cd2b4954dae9263dda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Follow: {fileID: 0}
-  m_FocusOn: {fileID: 0}
-  m_Distance: 0
-  m_AngleX: 0
-  m_AngleY: 0
-  m_Volume: {fileID: 0}
+  m_Follow: {fileID: 331753876}
+  m_FocusOn: {fileID: 331753875}
+  m_Distance: 16
+  m_AngleX: -40
+  m_AngleY: 45
+  m_Volume: {fileID: 832575518}
 --- !u!1001 &331753874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,6 +347,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d97d4df8d78e924e854fa120123cce2, type: 3}
+--- !u!4 &331753875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8243546137119449403, guid: 7d97d4df8d78e924e854fa120123cce2,
+    type: 3}
+  m_PrefabInstance: {fileID: 331753874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &331753876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6513287228702604876, guid: 7d97d4df8d78e924e854fa120123cce2,
+    type: 3}
+  m_PrefabInstance: {fileID: 331753874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
