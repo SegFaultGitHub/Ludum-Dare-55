@@ -22,6 +22,7 @@ namespace Code.Characters {
                     this.TargetPosition = null;
                 }
             }
+
             if (this.TargetAngle != null) {
                 float diff = (this.transform.eulerAngles.y + 360) % 360 - (this.TargetAngle.Value + 360) % 360;
                 if (Math.Abs(diff) < 3) {

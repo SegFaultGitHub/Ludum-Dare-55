@@ -22,7 +22,7 @@ namespace Code.Characters {
                 this.MovementDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
             }
 
-            this.Animator.SetFloat(SPEED, (speed * (this.Running ? this.RunningSpeed : this.WalkingSpeed)) / WalkSpeedThreshold);
+            this.Animator.SetFloat(SPEED, speed * (this.Running ? this.RunningSpeed : this.WalkingSpeed) / WalkSpeedThreshold);
         }
 
         #region Input
@@ -69,7 +69,7 @@ namespace Code.Characters {
                 // --
                 WalkingStarted = this.PlayerInputs.Controls.Walking.WasPressedThisFrame(),
                 WalkingInProgress = this.PlayerInputs.Controls.Walking.IsPressed(),
-                WalkingEnded = this.PlayerInputs.Controls.Walking.WasReleasedThisFrame(),
+                WalkingEnded = this.PlayerInputs.Controls.Walking.WasReleasedThisFrame()
             };
         }
 
@@ -77,14 +77,17 @@ namespace Code.Characters {
             if (this.Input.MoveStarted || this.Input.MoveInProgress || this.Input.MoveEnded) {
                 this.Move(this.PlayerInputs.Controls.Move.ReadValue<Vector2>());
             }
+
             // --
             if (this.Input.InteractPressed) {
                 this.Interact();
             }
+
             // --
             if (this.Input.JumpInProgress) {
                 this.Jump();
             }
+
             // --
             this.Running = !this.Input.WalkingInProgress;
         }

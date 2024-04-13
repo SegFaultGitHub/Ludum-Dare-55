@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Code.Controllers {
     public class Character : MonoBehaviour {
         #region Members
-        [Foldout("Camera")]
+        [Foldout("Character", true)]
         [Separator("Read only")]
         [ReadOnly][SerializeField] private protected Animator m_Animator;
         [ReadOnly][SerializeField] private protected CharacterController m_Controller;
@@ -32,6 +32,7 @@ namespace Code.Controllers {
                     this.TargetPosition = null;
                 }
             }
+
             if (this.TargetAngle != null) {
                 float diff = (this.transform.eulerAngles.y + 360) % 360 - (this.TargetAngle.Value + 360) % 360;
                 if (Math.Abs(diff) < 3) {
