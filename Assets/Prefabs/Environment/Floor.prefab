@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7898197164129492408}
   - component: {fileID: 2731601318479789763}
   - component: {fileID: 5338404891016984163}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,6 +134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b24a8ea022e6df74cb7fb1699098659a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

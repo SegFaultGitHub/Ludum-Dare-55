@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 472986638227192973}
-  m_Layer: 0
+  - component: {fileID: -1376518187374146474}
+  m_Layer: 7
   m_Name: Pillar small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 2556641015971804346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1376518187374146474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7229821497653071130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46764ecb8bbe4b0db5d919557317000e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2662113398972224337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pillar_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2e7aafd5c1648394d97620683c0efdcf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
