@@ -26,11 +26,14 @@ namespace Code.Controllers {
         private Volume Volume { get => this.m_Volume; }
         #endregion
 
+        public bool Enabled = true;
+
         private void Start() {
             this.Volume.sharedProfile.TryGet(out this.DepthOfField);
         }
 
         private void Update() {
+            if (!this.Enabled) return;
             Vector3 offset = Quaternion.Euler(this.AngleX, this.AngleY, 0) * Vector3.forward;
             this.transform.position = this.Follow.position + offset * this.Distance;
             this.transform.LookAt(this.Follow);

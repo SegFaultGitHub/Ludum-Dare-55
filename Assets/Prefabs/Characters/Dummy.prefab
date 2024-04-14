@@ -436,11 +436,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 0}
   m_Controller: {fileID: 0}
+  LastGroundedPosition: {x: 0, y: 0, z: 0}
   <WalkingSpeed>k__BackingField: 0.06
   <RunningSpeed>k__BackingField: 0.15
   <MovementDirection>k__BackingField: {x: 0, y: 0, z: 0}
   m_JumpPower: 0.35
   m_Camera: {fileID: 0}
+  m_CanMove: 0
+  m_GrabbedBlock: {fileID: 0}
+  m_GrabbedPlayerAngle: 0
+  m_GrabbedBlockAngles: {x: 0, y: 0, z: 0}
+  MaxGrabDistance: 15
+  CameraController: {fileID: 0}
+  Transition: {fileID: 2633344174768102684, guid: 3eb5f36f2c1e5b84bb9dce2734f6d2ac,
+    type: 3}
+  CanvasTransition: {fileID: 0}
 --- !u!143 &295463952326475340
 CharacterController:
   m_ObjectHideFlags: 0

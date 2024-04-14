@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1119885600146383677}
   - component: {fileID: 5929229907083750905}
   - component: {fileID: 768188869663162314}
-  m_Layer: 0
+  - component: {fileID: -3746260044804348484}
+  m_Layer: 7
   m_Name: Prototype cube large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +80,18 @@ MonoBehaviour:
   m_AngleStepY: 1
   m_RandomRotateZ: 0
   m_AngleStepZ: 1
+--- !u!114 &-3746260044804348484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739647960376563375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46764ecb8bbe4b0db5d919557317000e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1323595339897607823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,6 +154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube_Prototype_Large_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34a88f78bbe46e04a9ae454df2e343d5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 34a88f78bbe46e04a9ae454df2e343d5,
         type: 3}
@@ -231,6 +249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube_Prototype_Large_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d451ab8b07c10a47a7b2cf20326072f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5d451ab8b07c10a47a7b2cf20326072f,
         type: 3}

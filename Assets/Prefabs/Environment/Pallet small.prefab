@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5080617953720531839}
   - component: {fileID: 5976908775884734553}
-  m_Layer: 0
+  - component: {fileID: -5538681850675758286}
+  m_Layer: 7
   m_Name: Pallet small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +55,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &-5538681850675758286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031187515246553937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46764ecb8bbe4b0db5d919557317000e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8508860665387595279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,6 +134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pallet_Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ccbb46672c5cfe40b9636802d996881,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
