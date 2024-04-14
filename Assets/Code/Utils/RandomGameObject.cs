@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 namespace Code.Utils {
     public class RandomGameObject : MonoBehaviour {
         #region Members
+        [Foldout("RandomGameObject", true)]
         [field: SerializeField] private List<WeightDistribution<GameObject>> m_Objects;
         [Header("X")]
         [field: SerializeField] private bool m_RandomRotateX;
