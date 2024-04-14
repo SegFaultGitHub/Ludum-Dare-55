@@ -16,6 +16,7 @@ namespace Code.Controllers {
         private CharacterController Controller { get => this.m_Controller; set => this.m_Controller = value; }
         #endregion
 
+        public Vector3 LastGroundedPosition;
         private protected const float WALK_SPEED_THRESHOLD = 0.1f;
 
         protected virtual void Awake() {
@@ -23,7 +24,7 @@ namespace Code.Controllers {
             this.Animator = this.GetComponentInChildren<Animator>();
         }
 
-        private void Update() {
+        protected virtual void Update() {
             if (this.TargetPosition != null) {
                 this.MovementDirection = this.TargetPosition.Value - this.transform.position;
                 if (this.MovementDirection.magnitude <= (this.Running ? this.RunningSpeed : this.WalkingSpeed)) {
@@ -32,6 +33,7 @@ namespace Code.Controllers {
                     this.TargetPosition = null;
                 }
             }
+
             if (this.TargetAngle != null) {
                 float diff = (this.transform.eulerAngles.y + 360) % 360 - (this.TargetAngle.Value + 360) % 360;
                 if (Math.Abs(diff) < 3) {
@@ -73,6 +75,7 @@ namespace Code.Controllers {
                     this.FallingSpeed = GRAVITY;
                     this.Animator.SetBool(FALLING, false);
                     this.Grounded = true;
+                    this.LastGroundedPosition = this.transform.position;
                     break;
                 case CollisionFlags.Above:
                     this.FallingSpeed = GRAVITY;
@@ -90,6 +93,7 @@ namespace Code.Controllers {
         }
 
         public void SetPosition(Vector3 position) {
+            this.FallingSpeed = Vector3.zero;
             this.Controller.enabled = false;
             this.transform.position = position;
             this.Controller.enabled = true;
