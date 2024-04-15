@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7811696777245567548}
   - component: {fileID: 7536135661286526850}
+  - component: {fileID: -1028996680260811271}
   m_Layer: 7
   m_Name: Floor finish
   m_TagString: Untagged
@@ -54,6 +55,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 0.5, z: 4}
   m_Center: {x: 0, y: -0.25, z: 0}
+--- !u!114 &-1028996680260811271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980747544651735341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46764ecb8bbe4b0db5d919557317000e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8762594808421104719
 PrefabInstance:
   m_ObjectHideFlags: 0

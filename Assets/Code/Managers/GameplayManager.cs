@@ -122,6 +122,7 @@ namespace Code.Managers {
                 uiBlockHit.Obj.SetLayerRecursively(BLOCKS_LAYER);
                 this.GrabbedBlock = uiBlockHit.Obj;
                 this.GrabbedBlock.transform.SetParent(null);
+                this.GrabbedBlock.transform.eulerAngles = new Vector3(0, 0, 0);
                 this.GrabbedBlock.InitCanvas();
                 this.GrabbedBlock.InUI = false;
             } else if (this.Player.CanGrab(blockHit.Obj)) {
