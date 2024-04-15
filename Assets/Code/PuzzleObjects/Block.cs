@@ -97,7 +97,6 @@ namespace Code.PuzzleObjects {
 
         public void OpenCanvas() {
             if (this.CanvasOpened) return;
-            Debug.Log("OPEN");
             this.CanvasOpened = true;
             if (this.Tween != null) {
                 LeanTween.cancel(this.Tween.id);
@@ -113,7 +112,6 @@ namespace Code.PuzzleObjects {
 
         public void CloseCanvas() {
             if (!this.CanvasOpened) return;
-            Debug.Log("CLOSE");
             this.CanvasOpened = false;
             if (!this.Canvas.gameObject.activeSelf)
                 return;

@@ -111,7 +111,7 @@ namespace Code.Controllers {
         [field: SerializeField] public float WalkingSpeed { get; protected set; }
         [field: SerializeField] public float RunningSpeed { get; protected set; }
         protected Vector3 FallingSpeed;
-        protected bool Grounded = false;
+        public bool Grounded = false;
         private double FallingSince = 0;
         [field: SerializeField] public Vector3 MovementDirection { get; protected set; }
         private float TurnSmoothVelocity;
