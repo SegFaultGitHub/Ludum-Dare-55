@@ -1133,7 +1133,10 @@ MonoBehaviour:
   MainMenu: MainMenu
   OrderedLevels:
   - Level tutorial
-  - SampleScene
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
 --- !u!223 &8852932830318941440
 Canvas:
   m_ObjectHideFlags: 0
