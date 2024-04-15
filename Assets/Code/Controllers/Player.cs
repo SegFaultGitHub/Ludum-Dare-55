@@ -1,11 +1,14 @@
+using System;
 using Code.PuzzleObjects;
 using Code.UI;
 using External.Extensions;
+using External.LeanTween.Framework;
 using MyBox;
+using TMPro;
 using UnityEngine;
 
 namespace Code.Controllers {
-    public class Player : Character {
+    public class Player : Character, IWithWorldCanvas {
         #region Members
         [Foldout("Player", true)]
         [SerializeField] private float m_JumpPower;
@@ -32,11 +35,20 @@ namespace Code.Controllers {
         public FullTransition Transition;
         public Transform CanvasTransition;
 
+        public Canvas Canvas;
+        public TMP_Text Text;
+        private LTDescr Tween;
+        private bool CanvasOpened;
+
         protected override void Awake() {
             base.Awake();
+            this.Canvas = this.GetComponentInChildren<Canvas>();
             this.CameraController = FindObjectOfType<Camera>();
             this.CanMove = true;
             this.Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+            this.Canvas.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UnityEngine.Camera>();
+            this.Canvas.gameObject.SetActive(false);
+            this.Canvas.transform.localScale *= 0;
         }
 
         #if UNITY_EDITOR
@@ -49,6 +61,9 @@ namespace Code.Controllers {
         protected override void Update() {
             base.Update();
             this.GatherInput();
+
+            this.Canvas.transform.position = this.transform.position + new Vector3(-4.5f, 5.5f, 2f);
+            ((IWithWorldCanvas)this).RotateCanvas(this.Canvas);
 
             if (this.CanMove) {
                 this.HandleInput();
@@ -77,8 +92,14 @@ namespace Code.Controllers {
             }
         }
 
-        public bool CanGrab(Block block) => (block.transform.position - this.transform.position).magnitude <= this.MaxGrabDistance;
-        public bool CanRelease(Vector3 position) => (this.transform.position - position).magnitude <= this.MaxGrabDistance;
+        public bool CanGrab(Block block) {
+            return (block.transform.position - this.transform.position).magnitude <= this.MaxGrabDistance;
+        }
+
+        public bool CanRelease(Vector3 position) {
+            if (!this.Grounded) return false;
+            return (this.transform.position - position).magnitude <= this.MaxGrabDistance;
+        }
 
         public void GrabBlock(Block block) {
             this.Animator.SetBool(GRABBING, true);
@@ -94,19 +115,78 @@ namespace Code.Controllers {
         }
 
         private void OnTriggerEnter(Collider other) {
-            if (other.gameObject.layer != LayerMask.NameToLayer("WaterPlane")) return;
+            if (other.gameObject.layer == LayerMask.NameToLayer("WaterPlane")) {
+                this.CanMove = false;
+                this.CameraController.Enabled = false;
+                Instantiate(this.Transition, this.CanvasTransition)
+                    .Run(
+                        0.15f,
+                        action2: () => {
+                            this.CameraController.Enabled = true;
+                            this.SetPosition(this.LastGroundedPosition);
+                        },
+                        action4: () => {
+                            this.CanMove = true;
+                        }
+                    );
+            } else if (other.gameObject.layer == LayerMask.NameToLayer("SpeechBubbleTrigger")) {
+                SpeechBubbleTrigger trigger = other.gameObject.GetComponent<SpeechBubbleTrigger>();
+                this.OpenCanvas(trigger.Text);
 
-            this.CanMove = false;
-            this.CameraController.Enabled = false;
-            Instantiate(this.Transition, this.CanvasTransition)
-                .Run(
-                    0.15f,
-                    action2: () => {
-                        this.CameraController.Enabled = true;
-                        this.SetPosition(this.LastGroundedPosition);
-                    },
-                    action4: () => {
-                        this.CanMove = true;
+                OnScreenArrowTrigger arrowTrigger = other.gameObject.GetComponent<OnScreenArrowTrigger>();
+                arrowTrigger?.Open();
+            } else if (other.gameObject.layer == LayerMask.NameToLayer("EndLevel")) {
+                EndLevel endLevel = other.gameObject.GetComponent<EndLevel>();
+                this.CanMove = false;
+                endLevel.OpenMenu();
+            }
+        }
+
+        private void OnTriggerExit(Collider other) {
+            if (other.gameObject.layer == LayerMask.NameToLayer("SpeechBubbleTrigger")) {
+                SpeechBubbleTrigger trigger = other.gameObject.GetComponent<SpeechBubbleTrigger>();
+                if (trigger.DestroyAfterTrigger) Destroy(trigger.gameObject);
+                this.CloseCanvas();
+
+                OnScreenArrowTrigger arrowTrigger = other.gameObject.GetComponent<OnScreenArrowTrigger>();
+                arrowTrigger?.Close();
+            }
+        }
+
+        public void OpenCanvas(string text) {
+            if (this.CanvasOpened) return;
+            this.Text.text = text;
+            this.CanvasOpened = true;
+            if (this.Tween != null) {
+                LeanTween.cancel(this.Tween.id);
+                this.Tween = null;
+            }
+
+            this.Canvas.gameObject.SetActive(true);
+            float duration = 1 - this.Canvas.transform.localScale.x;
+            this.Tween = LeanTween.scale(this.Canvas.gameObject, Vector3.one, duration * 0.15f)
+                .setEaseOutBack()
+                .setOnComplete(() => this.Tween = null);
+        }
+
+        public void CloseCanvas() {
+            if (!this.CanvasOpened) return;
+            this.CanvasOpened = false;
+            if (!this.Canvas.gameObject.activeSelf)
+                return;
+
+            if (this.Tween != null) {
+                LeanTween.cancel(this.Tween.id);
+                this.Tween = null;
+            }
+
+            float duration = this.Canvas.transform.localScale.x;
+            this.Tween = LeanTween.scale(this.Canvas.gameObject, Vector3.zero, duration * 0.15f)
+                .setEaseInBack()
+                .setOnComplete(
+                    () => {
+                        this.Canvas.gameObject.SetActive(false);
+                        this.Tween = null;
                     }
                 );
         }

@@ -112,6 +112,7 @@ namespace Code.Managers {
         #endif
 
         private void GrabBlock() {
+            if (!this.Player.Grounded) return;
             Hit<Block> uiBlockHit = this.Raycast<Block>(this.UILayerMask);
             Hit<Block> blockHit = this.Raycast<Block>(this.BlocksLayerMask);
 
