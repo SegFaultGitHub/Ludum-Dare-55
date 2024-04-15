@@ -134,8 +134,9 @@ namespace Code.Controllers {
                 SpeechBubbleTrigger trigger = other.gameObject.GetComponent<SpeechBubbleTrigger>();
                 this.OpenCanvas(trigger.Text);
             } else if (other.gameObject.layer == LayerMask.NameToLayer("EndLevel")) {
-                SpeechBubbleTrigger trigger = other.gameObject.GetComponent<SpeechBubbleTrigger>();
-                this.OpenCanvas(trigger.Text);
+                EndLevel endLevel = other.gameObject.GetComponent<EndLevel>();
+                this.CanMove = false;
+                endLevel.OpenMenu();
             }
         }
 
