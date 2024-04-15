@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5043011263352265154}
   - component: {fileID: 1789451945329646186}
   - component: {fileID: 2223636082214998764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20599b2408e8b69409fff67ef071e937, type: 2}
+  - {fileID: 2100000, guid: b5d95192ed25a754396484c92f434723, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3122093146516104543}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
